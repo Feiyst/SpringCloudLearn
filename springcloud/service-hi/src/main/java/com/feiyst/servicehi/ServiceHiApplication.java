@@ -43,6 +43,9 @@ public class ServiceHiApplication {
 		return "hi " + name + " ,i am from port:" + port;
 	}
 
+	public String hiError(String name) {
+		return "hi,"+name+",sorry,error!";
+	}
 //	private static final Logger LOG = Logger.getLogger(ServiceHiApplication.class.getName());
 
 

@@ -1,0 +1,39 @@
+server:
+  port: 8900
+
+#注册到服务中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+#设置服务名称
+spring:
+  application:
+    name: service-turbine
+
+#
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+
+#断路器聚合监控配置
+turbine:
+  app-config: service-hi,service-lucy
+  aggregator:
+      cluster-config: default
+  cluster-name-expression: new String("default")
+  combine-host-port: true
+  instanceUrlSuffix:
+    default: actuator/hystrix.stream
+
+
+
+
+
+

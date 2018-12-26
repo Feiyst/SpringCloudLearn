@@ -1,0 +1,117 @@
+server:
+  port: 8901
+
+
+#时间断言
+#spring:
+#  profiles:
+#    active: after_route
+#---
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: after_route
+#        uri: http://httpbin.org:80/get
+#        predicates:
+#        - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+#  profiles: after_route
+
+
+#header头请求断言
+#spring:
+#  profiles:
+#    active: header_route
+#
+#---
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: header_route
+#        uri: http://httpbin.org:80/get
+#        predicates:
+#        - Header=X-Request-Id, \d+
+#  profiles: header_route
+
+
+#cookie断言
+#spring:
+#  profiles:
+#    active: cookie_route
+#
+#---
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: cookie_route
+#        uri: http://httpbin.org:80/get
+#        predicates:
+#        - Cookie=name, feiyst
+#  profiles: cookie_route
+
+
+#host断言
+#spring:
+#  profiles:
+#    active: host_route
+#---
+##spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: host_route
+#        uri: http://httpbin.org:80/get
+#        predicates:
+#        - Host=**.feiyst.com
+#  profiles: host_route
+
+
+#方法断言
+#spring:
+#  profiles:
+#    active: method_route
+#
+#---
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: method_route
+#        uri: http://httpbin.org:80/get
+#        predicates:
+#        - Method=GET
+#  profiles: method_route
+
+
+#路径断言
+#spring:
+#  profiles:
+#    active: path_route
+#---
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: path_route
+#        uri: http://httpbin.org:80/get
+#        predicates:
+#        - Path=/feiyst/{segment}
+#  profiles: path_route
+
+
+#query断言
+#spring:
+#  profiles:
+#    active: query_route
+#---
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: query_route
+#        uri: http://httpbin.org:80/get
+#        predicates:
+#        - Query=feiyst, ba.
+#  profiles: query_route
