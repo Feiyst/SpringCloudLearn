@@ -15,56 +15,56 @@ import java.util.List;
  * @description: 网关过滤-请求时间工厂类
  * @create: 2018-12-26 16:28
  **/
-public class RequestTimeGatewayFilterFactory
-        extends AbstractGatewayFilterFactory<RequestTimeGatewayFilterFactory.Config> {
-
-    private static final Log log = LogFactory.getLog(GatewayFilter.class);
-    private static final String REQUEST_TIME_BEGIN = "requestTimeBegin";
-    private static final String KEY = "withParams";
-
-    public RequestTimeGatewayFilterFactory() {
-        super(Config.class);
-    }
-
-    @Override
-    public GatewayFilter apply(Config config) {
-        return (exchange, chain) -> {
-            exchange.getAttributes().put(REQUEST_TIME_BEGIN, System.currentTimeMillis());
-            return chain.filter(exchange).then(
-                Mono.fromRunnable(() -> {
-                    Long startTime = exchange.getAttribute(REQUEST_TIME_BEGIN);
-                    if (startTime != null) {
-                        StringBuilder sb = new StringBuilder(exchange.getRequest().getURI().getRawPath())
-                                .append(": ")
-                                .append(System.currentTimeMillis() - startTime)
-                                .append("ms");
-                        if (config.isWithParams()) {
-                            sb.append(" params:").append(exchange.getRequest().getQueryParams());
-                        }
-                        log.info(sb.toString());
-                    }
-                })
-            );
-        };
-    }
-
-    @Override
-    public List<String> shortcutFieldOrder() {
-        return Arrays.asList(KEY);
-    }
-
-
-    public static class Config {
-
-        private boolean withParams;
-
-        public boolean isWithParams() {
-            return withParams;
-        }
-
-        public void setWithParams(boolean withParams) {
-            this.withParams = withParams;
-        }
-
-    }
-}
+//public class RequestTimeGatewayFilterFactory
+//        extends AbstractGatewayFilterFactory<RequestTimeGatewayFilterFactory.Config> {
+//
+//    private static final Log log = LogFactory.getLog(GatewayFilter.class);
+//    private static final String REQUEST_TIME_BEGIN = "requestTimeBegin";
+//    private static final String KEY = "withParams";
+//
+//    public RequestTimeGatewayFilterFactory() {
+//        super(Config.class);
+//    }
+//
+//    @Override
+//    public GatewayFilter apply(Config config) {
+//        return (exchange, chain) -> {
+//            exchange.getAttributes().put(REQUEST_TIME_BEGIN, System.currentTimeMillis());
+//            return chain.filter(exchange).then(
+//                Mono.fromRunnable(() -> {
+//                    Long startTime = exchange.getAttribute(REQUEST_TIME_BEGIN);
+//                    if (startTime != null) {
+//                        StringBuilder sb = new StringBuilder(exchange.getRequest().getURI().getRawPath())
+//                                .append(": ")
+//                                .append(System.currentTimeMillis() - startTime)
+//                                .append("ms");
+//                        if (config.isWithParams()) {
+//                            sb.append(" params:").append(exchange.getRequest().getQueryParams());
+//                        }
+//                        log.info(sb.toString());
+//                    }
+//                })
+//            );
+//        };
+//    }
+//
+//    @Override
+//    public List<String> shortcutFieldOrder() {
+//        return Arrays.asList(KEY);
+//    }
+//
+//
+//    public static class Config {
+//
+//        private boolean withParams;
+//
+//        public boolean isWithParams() {
+//            return withParams;
+//        }
+//
+//        public void setWithParams(boolean withParams) {
+//            this.withParams = withParams;
+//        }
+//
+//    }
+//}

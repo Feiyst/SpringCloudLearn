@@ -4,19 +4,20 @@ server:
 spring:
   application:
     name: service-hi
-  zipkin:
-    base-url: http://localhost:9411
+#  zipkin:
+#    base-url: http://localhost:9411
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-      cors:
-        allowed-origins: "*"
-        allowed-methods: "*"
+#eureka熔断界面显示配置(也可能是服务链追踪配置)
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#      cors:
+#        allowed-origins: "*"
+#        allowed-methods: "*"

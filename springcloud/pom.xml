@@ -27,6 +27,7 @@
         <module>service-miya</module>
         <module>service-lucy</module>
         <module>service-turbine</module>
+        <module>gateway</module>
     </modules>
 
     <properties>
